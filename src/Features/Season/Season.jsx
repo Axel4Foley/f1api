@@ -1,23 +1,38 @@
-import { response } from "express";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { getAllSeason } from "./get-season";
+
 
 export function Season() {
-    const [season,setSeason] = useState();
+    const [seasonLoading, season, errorSeason] = getAllSeason()
     useEffect(() => {
-        fetch("http://ergast.com/api/f1/seasons.json")
-            .then((response) => response.json())
-            .then(res=> {
-                setSeason(res ['MRDATA']["SeasonTable"]['Seasons'])
-            }
-        )
 
-    }, [])
+    },[])
+
     return (
         <>
-            <h1>
-                Ecco la lista di tutte le stagioni
-            </h1>
+            {seasonLoading && 
+                <p>Sto caricando i dati</p>
+            }
+
+            {errorSeason &&
+                <p>Si è verificato un errore durante la chiamata, riprovare!</p>
+            }
+
+            {season && season.map((s) => {
+                return (
+                    <div style={{width:"100%", display:"flex", alignItems:"baseline"}} key={s.season}>
+                        <button style={{margin:"10px"}}>
+                            <Link to={s.season}>
+                                {s.season}
+                            </Link>
+                        </button>
+                        <p>{s.url}</p>
+
+                    </div>
+                )
+            }
+        )}
 
 
             <button>
@@ -27,3 +42,6 @@ export function Season() {
         </>
     )
 }
+
+
+    

@@ -13,11 +13,6 @@ export function Home() {
                 <Link to={"season"}> Vai alle stagioni</Link>
             </button>
 
-            <a href="/year">
-                <button>
-                    Years
-                </button>
-            </a>
         </div>
     </>
         
