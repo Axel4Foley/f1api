@@ -27,7 +27,7 @@ export function Season() {
                                 {s.season}
                             </Link>
                         </button>
-                        <p>{s.url}</p>
+                        <p>{"Stagione " + s.season}</p>
 
                     </div>
                 )
@@ -35,7 +35,7 @@ export function Season() {
         )}
 
 
-            <button>
+            <button style={{marginTop:"15px"}}>
                 <Link to={"/"}>Torna alla home</Link>
             </button>
 
