@@ -16,7 +16,10 @@ export function Race() {
             setRace(res.MRData.RaceTable.Races[0]);
             setLoading(false)
         })
-        .catch(err => setError(err))
+        .catch(err => {
+            setError(err)
+            setLoading(false)
+        })
     },[seasonId, raceId])
 
     return (

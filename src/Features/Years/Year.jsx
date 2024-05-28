@@ -44,12 +44,12 @@ export function Year() {
                 <div style={{display:"flex", width:"100%", alignItems:"baseline"}} key={driver.driverId}>
                     <button style={{marginBottom:"30px", backgroundColor:"red", borderRadius:"15px"}}>
                         <Link to={`driver/${driver.driverId}`} style={{color:"white"}}>
-                            {driver.givenName + " " + driver.familyName}
+                            {driver.code}
                         </Link>
                     </button>
 
                     <p style={{marginLeft:"10px"}}>
-                        from {driver.nationality}
+                        {driver.givenName + " " + driver.familyName} from {driver.nationality}
                     </p>
 
                 </div>
