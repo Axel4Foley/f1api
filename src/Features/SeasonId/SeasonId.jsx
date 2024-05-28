@@ -37,8 +37,8 @@ export function SeasonId() {
 
                         <button style={{margin:"10px"}}>
                             
-                            <Link to={r.round}>
-                                Gara {r.round}
+                            <Link to={"races/"+r.round}>
+                                Circuito {r.round}
                             </Link>
                         </button>
                         <p>{r.raceName + " " + r.season}</p>
